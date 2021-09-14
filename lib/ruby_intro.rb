@@ -62,20 +62,17 @@ def starts_with_consonant? s
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
-  decimal = 0
+  #decimal = 0
   if s.length == 0
     return false
-  end
-  for index in 0..s.length-1
-    #print s[index]=='1'
-    if s[index] == '0' or s[index] == '1'
-      decimal = decimal+(s[index].to_i*(2**(s.length - index - 1)))
+  elsif s.length == 1 
+    if s[0] == '0'
+      return true
     else
       return false
     end
   end
-  if decimal%4 == 0
+  if s.match(/^[01]*00$/).to_s == s
     return true
   else
     return false
